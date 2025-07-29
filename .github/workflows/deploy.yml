@@ -33,7 +33,7 @@ jobs:
         run: sudo cat openvpn.log 
 
       - name: Test Connection
-        run: ping -c 2 192.168.59.104
+        run: ping -c 2 192.168.59.100
 
       - name: Run remote script
         working-directory: .github/workflows      
@@ -42,4 +42,4 @@ jobs:
         run: |
           echo "$SSH_PRIVATE_KEY" > ./id_rsa
           chmod 600 ./id_rsa
-          ssh -i ./id_rsa -o StrictHostKeyChecking=no -t  ${{ secrets.SERVER_USERNAME }}@192.168.59.100 'docker ps -a'
+          ssh -i ./id_rsa -o StrictHostKeyChecking=no -t  ${{ secrets.SERVER_USERNAME }}@192.168.59.100 'cd /opt/secretariavirtual/secretaria-virtual-devops && ./deploy.sh production --no-create-image 2>&1'
