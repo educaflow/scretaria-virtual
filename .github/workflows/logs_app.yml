@@ -43,3 +43,4 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ./id_rsa
           chmod 600 ./id_rsa
           ssh -i ./id_rsa -o StrictHostKeyChecking=no -t  ${{ secrets.SERVER_USERNAME }}@192.168.59.100 'docker logs secretariavirtual-production-app 2>&1'
+          ssh -i ./id_rsa -o StrictHostKeyChecking=no -t  ${{ secrets.SERVER_USERNAME }}@192.168.59.100 'cat /opt/secretariavirtual/data/logs/axelor.log 2>&1'
