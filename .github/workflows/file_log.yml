@@ -42,4 +42,4 @@ jobs:
         run: |
           echo "$SSH_PRIVATE_KEY" > ./id_rsa
           chmod 600 ./id_rsa
-          ssh -i ./id_rsa -o StrictHostKeyChecking=no -t  ${{ secrets.SERVER_USERNAME }}@192.168.59.100 'cat /opt/secretariavirtual/secretaria-virtual-devops/environments/production/data/app/logs/ 2>&1'
+          ssh -i ./id_rsa -o StrictHostKeyChecking=no -t  ${{ secrets.SERVER_USERNAME }}@192.168.59.100 'cat /opt/secretariavirtual/secretaria-virtual-devops/environments/production/data/app/logs/axelor.log 2>&1'
